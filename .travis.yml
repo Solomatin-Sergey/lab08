@@ -6,13 +6,15 @@ compiler:
 
 jobs:
   include:
-  - name: "my projects"
+  - name: "my_project"
 
-
+services:
+    - docker
+    
 script:
     - cmake -H. -B_build
     - cmake --build _build
-
+    - docker build -t logger .
 
 addons:
   apt:
